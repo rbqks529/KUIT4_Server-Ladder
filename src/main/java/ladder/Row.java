@@ -1,7 +1,7 @@
 package ladder;
 
 public class Row {
-    int[] row;
+    private final int[] row;
 
     public Row(int numberOfPerson) {
         validateNumberOfPerson(numberOfPerson);
