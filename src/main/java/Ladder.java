@@ -32,8 +32,8 @@ public class Ladder {
                 prevLine = false;
             }
         }
-    }
-*/
+    }*/
+
     public int run(int startPosition) {
         StartPositionConfirm(startPosition);
         int currentPosition = startPosition - 1;
