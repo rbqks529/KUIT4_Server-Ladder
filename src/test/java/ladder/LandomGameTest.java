@@ -10,12 +10,12 @@ public class LandomGameTest {
     @Test
     void 사다리_생성_확인() {
         //given
-        GreaterThanOne numberOfRow = GreaterThanOne.from(3);
-        GreaterThanOne numberOfPerson = GreaterThanOne.from(5);
-
+        /*GreaterThanOne numberOfRow = GreaterThanOne.from(3);
+        GreaterThanOne numberOfPerson = GreaterThanOne.from(5);*/
+        LadderGameSize ladderGameSize = new LadderGameSize(3, 5);
         //when
-        LadderGame basicGame = LadderGameFactory.createBasicLadderGame(numberOfRow, numberOfPerson);
-        LadderGame randomGame = LadderGameFactory.createRandomLadderGame(numberOfRow, numberOfPerson);
+        LadderGame basicGame = LadderGameFactory.createBasicLadderGame(ladderGameSize);
+        LadderGame randomGame = LadderGameFactory.createRandomLadderGame(ladderGameSize);
 
         //then
         assertThat(basicGame).isNotNull();
@@ -25,9 +25,10 @@ public class LandomGameTest {
     @Test
     void 기본사다리_사람_예외_처리_확인() {
         //when
-        GreaterThanOne numberOfPerson = GreaterThanOne.from(3);
-        GreaterThanOne numberOfRow = GreaterThanOne.from(3);
-        LadderGame basicGame = LadderGameFactory.createBasicLadderGame(numberOfRow, numberOfPerson);
+        /*GreaterThanOne numberOfPerson = GreaterThanOne.from(3);
+        GreaterThanOne numberOfRow = GreaterThanOne.from(3);*/
+        LadderGameSize ladderGameSize = new LadderGameSize(3, 3);
+        LadderGame basicGame = LadderGameFactory.createBasicLadderGame(ladderGameSize);
 
         //given
         Position position = Position.from(4);
@@ -40,9 +41,10 @@ public class LandomGameTest {
     @Test
     void 랜덤사다리_사람_예외_처리_확인() {
         //when
-        GreaterThanOne numberOfPerson = GreaterThanOne.from(3);
-        GreaterThanOne numberOfRow = GreaterThanOne.from(3);
-        LadderGame randomGame = LadderGameFactory.createRandomLadderGame(numberOfRow, numberOfPerson);
+       /* GreaterThanOne numberOfPerson = GreaterThanOne.from(3);
+        GreaterThanOne numberOfRow = GreaterThanOne.from(3);*/
+        LadderGameSize ladderGameSize = new LadderGameSize(3, 3);
+        LadderGame randomGame = LadderGameFactory.createRandomLadderGame(ladderGameSize);
 
         //given
         Position position = Position.from(4);
@@ -57,7 +59,8 @@ public class LandomGameTest {
         //when
         GreaterThanOne numberOfPerson = GreaterThanOne.from(5);
         GreaterThanOne numberOfRow = GreaterThanOne.from(6);
-        LadderGame randomGame = LadderGameFactory.createRandomLadderGame(numberOfRow, numberOfPerson);
+        LadderGameSize ladderGameSize = new LadderGameSize(5, 6);
+        LadderGame randomGame = LadderGameFactory.createRandomLadderGame(ladderGameSize);
 
         //given
         Position position = Position.from(0);

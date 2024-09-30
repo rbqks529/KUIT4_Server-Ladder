@@ -2,15 +2,15 @@ package ladder;
 
 public class LadderPrinter {
     private final Row[] rows;
-    private StringBuilder sb;
 
     public LadderPrinter(Row[] rows) {
         this.rows = rows;
-        this.sb = new StringBuilder();
     }
 
     public void printLadder(Position position, int currentRow, boolean isAfter) {
+        StringBuilder sb = new StringBuilder();
         sb.setLength(0); // StringBuilder 초기화
+
         for (int i = 0; i < rows.length; i++) {
             sb.append(addPositionMarker(rows[i].rowToString(), position, i == currentRow));
             sb.append("\n");

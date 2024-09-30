@@ -1,6 +1,7 @@
 package ladder;
 
 import ladder.creator.BasicLadderCreator;
+import ladder.creator.LadderCreator;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
@@ -10,11 +11,12 @@ class LadderGameTest {
     @Test
     void 사다리_생성_확인() {
         //given
-        GreaterThanOne numberOfRow = GreaterThanOne.from(3);
-        GreaterThanOne numberOfPerson = GreaterThanOne.from(5);
+        /*GreaterThanOne numberOfRow = GreaterThanOne.from(3);
+        GreaterThanOne numberOfPerson = GreaterThanOne.from(5);*/
+        LadderGameSize ladderGameSize = new LadderGameSize(3, 5);
 
         //when
-        BasicLadderCreator basicLadderCreator = new BasicLadderCreator(numberOfRow, numberOfPerson);
+        BasicLadderCreator basicLadderCreator = new BasicLadderCreator(ladderGameSize);
 
         //then
         assertThat(basicLadderCreator).isNotNull();
@@ -23,8 +25,9 @@ class LadderGameTest {
     @Test
     void 사다리_사람_예외_처리_확인() {
         //when
-        GreaterThanOne numberOfPerson = GreaterThanOne.from(3);
-        BasicLadderCreator basicLadderCreator = new BasicLadderCreator(GreaterThanOne.from(2), numberOfPerson);
+        /*GreaterThanOne numberOfPerson = GreaterThanOne.from(3);*/
+        LadderGameSize ladderGameSize = new LadderGameSize(2, 3);
+        BasicLadderCreator basicLadderCreator = new BasicLadderCreator(ladderGameSize);
         LadderGame ladderGame = new LadderGame(basicLadderCreator);
 
         //given
@@ -38,9 +41,10 @@ class LadderGameTest {
     @Test
     void 사다리_결과_확인() {
         //when
-        GreaterThanOne numberOfPerson = GreaterThanOne.from(4);
-        GreaterThanOne row = GreaterThanOne.from(3);
-        BasicLadderCreator basicLadderCreator = new BasicLadderCreator(row, numberOfPerson);
+        /*GreaterThanOne numberOfPerson = GreaterThanOne.from(4);
+        GreaterThanOne row = GreaterThanOne.from(3);*/
+        LadderGameSize ladderGameSize = new LadderGameSize(4, 3);
+        BasicLadderCreator basicLadderCreator = new BasicLadderCreator(ladderGameSize);
         LadderGame ladderGame = new LadderGame(basicLadderCreator);
 
         basicLadderCreator.drawLine(Position.from(0),Position.from(0));
